@@ -16,6 +16,19 @@ searchInputEl.addEventListener('blur', function () {
 });
 
 const badgeEl = document.querySelector('header .badges');
-window.addEventListener('scroll', function () {
-  console.log('scroll!!');
-});
+window.addEventListener('scroll', _.throttle(function () {
+  console.log(window.scrollY);
+  if (window.scrollY > 500) {
+    gsap.to(badgeEl, .6, {
+      opacity: 0,
+      display: 'none'
+    });
+  } else {
+    gsap.to(badgeEl, .6, {
+      opacity: 1
+      display: 'block'
+    });
+  }
+}, 300));
+// _.throttle(함수, 시간추가ms);
+// gsap.to(요소, 지속시간, 옵션);
