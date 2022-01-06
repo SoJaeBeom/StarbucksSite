@@ -389,11 +389,13 @@ header .badges .badge {
   height: 62px;
   flex-grow: 1;
 }
+
 .notice .notice-line .inner__left .swiper-slide {
   height: 62px;
   display: flex;
   align-items: center;
 }
+
 .notice .notice-line .inner__left .swiper-slide a {
   color: #fff;
 }
@@ -442,14 +444,30 @@ header .badges .badge {
   background-color: #f6f5ef;
   position: relative;
 }
-.notice .promotion .swiper-container {
+
+.notice .promotion .swiper {
   width: calc(819px * 3 + 20px);
   height: 553px;
-  background-color: orange;
-  text-align: center;
-  font-size: 200px;
   position: absolute;
   top: 40px;
   left: 50%;
   margin-left: calc((819px * 3 + 20px) / -2);
+}
+
+.notice .promotion .swiper-slide {
+  opacity: .5;
+  transition: opacity 1s;
+  position: relative;
+}
+
+.notice .promotion .swiper-slide-active {
+  opacity: 1;
+}
+
+.notice .promotion .swiper-slide .btn {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
