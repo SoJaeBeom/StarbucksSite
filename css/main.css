@@ -73,7 +73,7 @@ a {
 
 .btn.btn--white {
   color: #fff;
-  background-color: #fff;
+  border-color: #fff;
 }
 
 .btn.btn--white:hover {
@@ -671,9 +671,7 @@ header .badges .badge {
   margin-bottom: 15px;
 }
 
-.season-product .text-group .more {
-
-}
+.season-product .text-group .more {}
 
 /* RESERVE COFFEE */
 .reserve-coffee {
@@ -729,4 +727,59 @@ header .badges .badge {
 
 .pick-your-favorite .text-group .description {
   margin-bottom: 40px;
+}
+
+/* RESERVE STORE */
+.reserve-store {
+  background-image: url("../images/reserve_store_bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.reserve-store .inner {
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reserve-store .medal {
+  width: 334px;
+  height: 334px;
+  perspective: 600px;
+}
+
+.reserve-store .medal .front,
+.reserve-store .medal .back {
+  position: absolute;
+  width: 334px;
+  height: 334px;
+  backface-visibility: hidden;
+  transition: 1s;
+}
+
+.reserve-store .medal .front {
+  transform: rotateY(0deg);
+}
+
+.reserve-store .medal:hover .front {
+  transform: rotateY(180deg);
+}
+
+.reserve-store .medal .back {
+  transform: rotateY(-180deg);
+}
+
+.reserve-store .medal:hover .back {
+  transform: rotateY(0deg);
+}
+
+.reserve-store .medal .back .btn {
+  position: absolute;
+  top: 240px;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
