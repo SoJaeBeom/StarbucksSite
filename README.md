@@ -31,7 +31,19 @@
 [GSAP(The GreenSock Animation Platform)](https://greensock.com/gsap/)은 자바스크립트로 제어하는 타임라인 기반의 애니메이션 라이브러리입니다.
 
 ### 5. Swiper
+[Swiper API](https://swiperjs.com/swiper-api)
 
+```js
+new Swiper(요소, 옵션);
+```
+
+```js
+new Swiper('.swiper-container', {
+  direction: 'vertical', // 수직 슬라이드
+  autoplay: true, // 자동 재생 여부
+  loop: true // 반복 재생 여부
+});
+```
 
 ### 6. Youtube API
 
