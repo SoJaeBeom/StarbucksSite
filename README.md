@@ -46,13 +46,77 @@ new Swiper('.swiper-container', {
 ```
 
 ### 6. Youtube API
+[IFrame Player API](https://developers.google.com/youtube/iframe_api_reference?hl=ko)를 통해 YouTube 동영상을 제어할 수 있습니다.
 
+유튜브 영상이 출력될 위치에 요소를 지정(생성)합니다.
+
+```html
+<!-- in HEAD -->
+<script defer src="./js/youtube.js"></script>
+
+<!-- in BODY -->
+<div id="player"></div>
+```
+
+`onYouTubePlayerAPIReady` 함수 이름은 Youtube IFrame Player API에서 사용하는 이름이기 때문에 다르게 지정하면 동작하지 않습니다!<br>
+그리고 함수는 전역(Global) 등록해야 합니다!
+
+[플레이어 매개변수(playerVars)](https://developers.google.com/youtube/player_parameters.html?playerVersion=HTML5&hl=ko#Parameters)에서 더 많은 옵션을 확인할 수 있습니다.
+
+```js
+// Youtube IFrame API를 비동기로 로드합니다.
+var tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+function onYouTubePlayerAPIReady() {
+  // <div id="player"></div>
+  new YT.Player('player', {
+    videoId: 'An6LvWQuj_8', // 재생할 유튜브 영상 ID
+    playerVars: {
+      autoplay: true, // 자동 재생 유무
+      loop: true, // 반복 재생 유무
+      playlist: 'An6LvWQuj_8' // 반복 재생할 유튜브 영상 ID 목록
+    },
+    events: {
+      // 영상이 준비되었을 때,
+      onReady: function (event) {
+        event.target.mute(); // 음소거!
+      }
+    }
+  });
+}
+```
 
 ### 7. ScrollMagic
+[ScrollMagic](https://github.com/janpaepke/ScrollMagic)은 스크롤과 요소의 상호 작용을 위한 자바스크립트 라이브러리입니다.<br>
+대표적으로 어떤 요소가 현재 화면에 보이는 상태인지를 확인할 때 사용합니다.
 
+[ScrollMagic API](http://scrollmagic.io/docs/)
+
+```html
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"></script>
+```
+
+```js
+new ScrollMagic
+  .Scene({ // 감시할 장면(Scene)을 추가
+    triggerElement: spyEl, // 보여짐 여부를 감시할 요소를 지정
+    triggerHook: .8 // 화면의 80% 지점에서 보여짐 여부 감시
+  })
+  .setClassToggle(spyEl, 'show') // 요소가 화면에 보이면 show 클래스 추가
+  .addTo(new ScrollMagic.Controller()) // 컨트롤러에 장면을 할당(필수!)
+```
 
 ### 8. Lodash
+[Lodash](https://lodash.com/)는 다양한 유틸리티 기능을 제공하는 자바스크립트 라이브러리입니다.
 
+[Lodash API](https://lodash.com/docs/4.17.15) <br>
+[Lodash throttle](https://lodash.com/docs/4.17.15#throttle)
+
+```html
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js" integrity="sha512-90vH1Z83AJY9DmlWa8WkjkV79yfS2n2Oxhsi2dZbIv0nC4E6m5AbH8Nh156kkM7JePmqD6tcZsfad1ueoaovww==" crossorigin="anonymous"></script>
+```
 
 ### 9. Netlify
 
